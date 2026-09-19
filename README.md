@@ -2,7 +2,12 @@
 
 **说人话 Bench：少点套话，保住原意。**
 
-目前处于提案阶段。首版计划编写 50 道任务，题集、评测程序和模型结果尚未发布。
+已有 10 道可运行任务（[MVP 说明](docs/mvp10.md)），用 [Harbor](https://github.com/harbor-framework/harbor) 格式编写，参照答案全部通过。完整的 50 题题集、人工评估和模型结果尚未发布。
+
+```bash
+python3 scripts/selfcheck.py      # 给参照答案和反例评分，不需要 Docker
+harbor run -p ./tasks -a oracle   # 十道题跑一遍，确认都可解
+```
 
 ## 测什么
 
@@ -18,6 +23,7 @@
 
 ## 提案与计划
 
+- [MVP 说明](docs/mvp10.md)：十道任务的题组对应、难度来源、检查器范围与评分键。
 - [完整提案](docs/proposal.md)：任务分配、例题、评分、对照与复现协议。
 - [后续实验计划](https://github.com/ktwu01/ai-slop-bench/issues/1)：题集整理、改写基线和专用改写模型的训练条件。
 - [研究背景](docs/proposal.md#研究背景)：测量目标、裁判可靠性和公开指标的局限。
