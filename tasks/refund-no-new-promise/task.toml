@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "ai-slop-bench/refund-no-new-promise"
+version = "0.1.0"
+description = "删掉套话改写客服消息，不得新增任何时间或结果承诺。"
+authors = [{ name = "ktwu01" }]
+keywords = [ "chinese", "writing", "instruction-following", "facts-and-promises",]
+
+[metadata]
+family = "facts-and-promises"
+role = "target"
+split = "public"
+register = "customer-message"
+rules_version = "v0.1.0"
+difficulty = "hard"
+category = "writing"
+
+[verifier]
+timeout_sec = 120.0
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+
+[verifier.env]
+
+[solution.env]

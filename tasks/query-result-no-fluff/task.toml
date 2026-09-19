@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "ai-slop-bench/query-result-no-fluff"
+version = "0.1.0"
+description = "禁用开场与结尾套话，直接给出查询结果并保住两项数据。"
+authors = [{ name = "ktwu01" }]
+keywords = [ "chinese", "writing", "instruction-following", "opener-closer",]
+
+[metadata]
+family = "opener-closer"
+role = "target"
+split = "public"
+register = "group-chat-reply"
+rules_version = "v0.1.0"
+difficulty = "medium"
+category = "writing"
+
+[verifier]
+timeout_sec = 120.0
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+
+[verifier.env]
+
+[solution.env]
