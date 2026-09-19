@@ -53,7 +53,7 @@
 
 这些来源已经包含评测经验。Sepia 的[公开发布说明测试](https://github.com/Nanako0129/sepia/tree/fef880eecf5aea7e28d7cab8ed3dabd9cc6822d5/evals/deaify-release-note)结合了规则检查和 LLM 评分；好好说话提到 50 条 BadCase 和独立评测技能，但本次未在固定版本的公开目录中找到完整的独立评测包。它们是应注明的先例，现成例子只适合作为开发材料。正式题另写，避免把已经公开的样例包装成隐藏测试。
 
-本地 skill 也暴露了值得测试的矛盾：好好说话的主文件限制对比句，受保护跨度说明要求保留纠错意义，症状库还给过倒置对比的改法。因此每条规则都要写清 `scope`、`exceptions` 和 `required_meaning`。对同一形式存在分歧时，先看题目明确要求的文体。
+好好说话存在值得测试的规则冲突：主文件限制对比句，受保护跨度说明要求保留纠错意义，症状库还给过倒置对比的改法。因此每条规则都要写清 `scope`、`exceptions` 和 `required_meaning`。对同一形式存在分歧时，先看题目明确要求的文体。
 
 ### 确定性判断有明确范围
 
@@ -258,9 +258,9 @@ B 条件先定位明确要求后仍存在的失败；补齐 A/C 后，再比较�
 
 公共来源的提交号见上表。五个公开 skill 仓库在已核验的版本中均标注 MIT；正式复用代码或文本时保留相应许可及署名。上游引用的第三方语料另查来源，仓库许可不自动覆盖所有引用材料。`shuorenhua` 私有镜像的存在不构成原作者许可的证明。
 
-已核验这些本地文件的远端来源。`haohao-shuohua`、`stop-slop` 和 `no-ai-slop` 均有完全匹配的公开上游版本；`shuorenhua` 仅确认了完全匹配的私有镜像。详见[远端来源与版本核验](skill-sources.md)，其中列出固定提交、访问限制和版本差异。
+`haohao-shuohua`、`stop-slop` 和 `no-ai-slop` 均引用已核验的公开上游版本；`shuorenhua` 仅确认私有镜像，尚未确认公开上游。详见[远端来源与版本核验](skill-sources.md)，其中列出固定提交、访问限制和版本差异。
 
-以下 SHA-256 对应实际读取的主文件，并与已核验的远端文件一致。正式加载 skill 做评测时，仍需把所有实际读取的 references 一并列入 manifest 和哈希。
+以下 SHA-256 对应已核验远端来源在固定提交中的 `SKILL.md`。正式加载 skill 做评测时，仍需把所有实际读取的 references 一并列入 manifest 和哈希。
 
 ```text
 haohao-shuohua  919d95dc532e8fb63a52ce9a20f044d5bc3a22ace5de207fc2062950b895f772
