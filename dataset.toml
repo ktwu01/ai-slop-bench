@@ -11,41 +11,41 @@ keywords = [ "chinese", "writing", "instruction-following", "slop",]
 
 [[tasks]]
 name = "ai-slop-bench/contrast-release-note"
-digest = "sha256:61b6728990c2326ae60966c22f53742d81a880ee2102e4e920709276f8cdb1ab"
+digest = "sha256:1b1dce27857e7341bdde37a20cc7405516011eaa43ec2f263cf0c7430fd664fe"
 
 [[tasks]]
 name = "ai-slop-bench/contrast-correction"
-digest = "sha256:0303f6497cbb9dad5d36626c961013b2d388e21a4ba2a492a8ae058ebc249640"
+digest = "sha256:539284eed9002f4fac05190addf4f533143b7863f295a066bd19f76326ed18dd"
 
 [[tasks]]
 name = "ai-slop-bench/protected-quote"
-digest = "sha256:1a49d9cf8bf5f5873bfa2cff712a29e25908f041136b1fef9738540fd4374b74"
+digest = "sha256:926809566957349d25dceacca0d06c88092559b30420e2a2d4000fa5c07d06a3"
 
 [[tasks]]
 name = "ai-slop-bench/refund-no-new-promise"
-digest = "sha256:deb08036c4385fd9e874858e5b033da7a4f72fd24c108db597fd331d5966e7b4"
+digest = "sha256:c1a9465d7250b7916aed3a440751f02fbbb8fce037f662da32b635937841c291"
 
 [[tasks]]
 name = "ai-slop-bench/handover-keep-list"
-digest = "sha256:6868a790ee7c61ee56eb087c3ba200bc1d0e2261ce5cb312652164bc319ad0b9"
+digest = "sha256:ae4bacf104675160e5532f8102cf0b17d87bee9a96982c51dd63a86d2399063d"
 
 [[tasks]]
 name = "ai-slop-bench/rollback-plain-paragraph"
-digest = "sha256:6a0578617b0f9d3493c44c9243e38888fc98cf0d159dd779245ff7e60ef6a012"
+digest = "sha256:f445bbf8158249be3df0f484a87d8f9963c32696da207af1036d5348c1091c04"
 
 [[tasks]]
 name = "ai-slop-bench/incident-uncertain-cause"
-digest = "sha256:b3d2d5c4ba2272be51e42b987c4db7d48631c3e08f56864bbc44adf0538b1021"
+digest = "sha256:93ec2abe0cbaaf8fb81753f45b0558d84ff4f540d22ae3becfd0411a0c7d0d3a"
 
 [[tasks]]
 name = "ai-slop-bench/query-result-no-fluff"
-digest = "sha256:e5fcd30f35dc0e1144358111fcf9a3e2410709d3350fbe130163d04546efc557"
+digest = "sha256:57b1ff3eb9f01a4acd3fa0cbe9d38ec49ffc0907672d71e5a5bd741ff395a701"
 
 [[tasks]]
 name = "ai-slop-bench/mentor-email-keep-thanks"
-digest = "sha256:5ce44486fad84e3ee947588ea1766f94dc3840b5d7526dbaa5ae0101a4024f5c"
+digest = "sha256:b145beee7d0400b7c2c0d6b7f684ac53b199627bb6c7a00cf3a925366dbcaa28"
 
 [[tasks]]
 name = "ai-slop-bench/status-update-multi-step"
-digest = "sha256:783b2d12cb8ddb741d0af911cf26d23eebf4c5f9d6a056e2491de8bcf91ab456"
+digest = "sha256:311d9cd8143142eff91434116241612ed83b73adbd7369da4fab0b6699a61339"
 
