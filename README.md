@@ -2,8 +2,6 @@
 
 **说人话 Bench：少点套话，保住原意。**
 
-A proposed benchmark for Chinese LLM writing and rewriting, combining verifiable style constraints with meaning preservation and human evaluation.
-
 目前处于提案阶段。首版计划编写 50 道任务，题集、评测程序和模型结果尚未发布。
 
 ## 测什么
@@ -28,8 +26,6 @@ A proposed benchmark for Chinese LLM writing and rewriting, combining verifiable
 ## 相关项目
 
 [Language Defensive Bench](https://github.com/ktwu01/language-defensive-bench)研究多轮纠正后仍进入最终交付的无关历史，以及局部纠正被扩大成长期禁令的现象。[提案 issue](https://github.com/ktwu01/language-defensive-bench/issues/1)记录任务与评分设计。该仓库目前为私有，需要访问权限。
-
-两个项目分别维护题集和成绩，可以参考彼此的规则检查、人工标注和反例设计。
 
 ## 提供案例
 
