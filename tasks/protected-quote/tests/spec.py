@@ -11,6 +11,7 @@ answer that explains first and quotes last did not follow the instruction.
 """
 
 from slopcheck import (
+    NOT_SEGMENT,
     Result,
     Text,
     clean_characters,
@@ -20,6 +21,8 @@ from slopcheck import (
     no_instruction_echo,
     no_markdown,
     no_negated_facts,
+    no_regex,
+    no_substrings,
     nonempty,
     require_facts,
     span_before,
@@ -29,6 +32,10 @@ TASK_ID = "srh-protected-001"
 OUTPUT_PATH = "/app/output.txt"
 
 PROTECTED = "这不是延期，而是取消。"
+
+# The second sentence of the same notice. It has to be conveyed and must not be
+# copied, so the two sentences pull in opposite directions one line apart.
+PARAPHRASE_ONLY = "报名费将全额退回"
 
 FACTS = {
     "活动已取消": ("活动已取消", "活动已经取消", "活动取消", "已取消活动", "活动已被取消", "这项活动已取消"),
@@ -41,12 +48,20 @@ FACTS = {
         "不会再安排时间",
         "不再择期",
     ),
+    "报名费全额退回": (
+        rf"re:报名费{NOT_SEGMENT}{{0,6}}(全额|全部|如数|悉数|足额)?(退回|退还|返还|退给|原路退)",
+        rf"re:(全额|如数|悉数|足额){NOT_SEGMENT}{{0,4}}(退回|退还|返还){NOT_SEGMENT}{{0,6}}报名费",
+    ),
 }
+
+# A second pair of quotation marks around the paraphrase-only sentence claims an
+# exemption this task never granted.
+QUOTED_SECOND = r"[「『“\"][^」』”\"]{0,30}报名费"
 
 ECHO = ("逐字", "不超过", "只写正文", "受保护", "违规", "享受")
 
 # 不再另行安排时间 is itself a statement of absence, so it is not anchored here.
-ASSERTED = ("活动已取消", "活动取消", "已取消活动", "活动已被取消")
+ASSERTED = ("活动已取消", "活动取消", "已取消活动", "活动已被取消", "报名费")
 
 
 def checks(text: Text) -> list[Result]:
@@ -69,7 +84,14 @@ def checks(text: Text) -> list[Result]:
             protected_spans=(PROTECTED,),
         ),
         require_facts(text, FACTS),
+        no_substrings(text, "no_verbatim_second_sentence_v1", (PARAPHRASE_ONLY,)),
+        no_regex(
+            text,
+            "no_second_quote_v1",
+            QUOTED_SECOND,
+            "只有第一句是受保护引文，退费那句不能当成引文照引",
+        ),
         no_negated_facts(text, ASSERTED, protected_spans=(PROTECTED,)),
         no_markdown(text),
-        max_visible_len(text, 38),
+        max_visible_len(text, 48),
     ]

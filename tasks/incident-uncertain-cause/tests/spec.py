@@ -13,6 +13,7 @@ two uncertainty statements are separate facts that both compete for the budget.
 """
 
 from slopcheck import (
+    NOT_CLAUSE,
     NOT_SEGMENT,
     Result,
     Text,
@@ -31,8 +32,21 @@ from slopcheck import (
 TASK_ID = "srh-cause-001"
 OUTPUT_PATH = "/app/output.txt"
 
+_R12 = r"(?<![0-9.])12\s*%"
+_R3 = r"(?<![0-9.])3\s*%"
+
 FACTS = {
-    "错误率12%": (r"re:(?<![0-9.])12\s*%",),
+    # Each rate has to sit with its own day. A bare 12% used to be enough; with
+    # a second reading in the material, an unbound number no longer says which
+    # day it describes.
+    "昨天的错误率12%": (
+        rf"re:昨天{NOT_CLAUSE}{{0,24}}{_R12}",
+        rf"re:{_R12}{NOT_CLAUSE}{{0,24}}昨天",
+    ),
+    "前天的错误率3%": (
+        rf"re:前天{NOT_SEGMENT}{{0,14}}{_R3}",
+        rf"re:{_R3}{NOT_SEGMENT}{{0,14}}前天",
+    ),
     "起始时间20:10": (r"re:(?<![0-9])20[:：]10(?![0-9])",),
     "结束时间20:25": (r"re:(?<![0-9])20[:：]25(?![0-9])",),
     "同一时段": ("同一时段", "同一时间段", "同时段", "同一时间", "同期", "该时段", "这段时间内", "同一区间"),
@@ -90,12 +104,21 @@ BANNED_NEW_INFO = (
     "疑似",
 )
 
+# The two readings belong to different days, so any pairing that crosses is wrong.
+DAY_SWAP = (
+    rf"前天{NOT_SEGMENT}{{0,14}}{_R12}|{_R12}{NOT_SEGMENT}{{0,14}}前天"
+    rf"|昨天{NOT_SEGMENT}{{0,14}}{_R3}|{_R3}{NOT_SEGMENT}{{0,14}}昨天"
+)
+
+# 3% is the day-before-yesterday reading, not the floor this spike rose from.
+RATE_RAMP = rf"(从|由){NOT_SEGMENT}{{0,4}}{_R3}|{_R3}{NOT_SEGMENT}{{0,6}}(升|涨|涨到|上升|飙|冲)"
+
 # 原因是 asserts a cause; 原因是否 asks about one. 归因 is banned unless negated.
 CAUSAL_REGEX = r"原因是(?!否)|(?<![不未法能])归因"
 
 ECHO = ("不超过", "只写正文", "不使用", "材料", "照原样")
 
-ASSERTED = ("12%", "20:10", "20:25", "配置发布", "同一时段")
+ASSERTED = ("12%", "20:10", "20:25", "配置发布", "同一时段", "3%", "前天")
 
 
 def checks(text: Text) -> list[Result]:
@@ -113,7 +136,9 @@ def checks(text: Text) -> list[Result]:
             "不得断言原因（「原因是否」和否定的「归因」不算）",
         ),
         no_substrings(text, "no_new_info_v1", BANNED_NEW_INFO),
+        no_regex(text, "no_day_swap_v1", DAY_SWAP, "12% 是昨天的，3% 是前天的"),
+        no_regex(text, "no_rate_ramp_v1", RATE_RAMP, "3% 是前天的读数，不是昨天这一段的起点"),
         no_markdown(text),
         single_paragraph(text),
-        max_visible_len(text, 58),
+        max_visible_len(text, 74),
     ]

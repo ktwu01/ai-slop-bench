@@ -4,7 +4,7 @@ multi_step_reward_strategy = "final"
 [task]
 name = "ai-slop-bench/status-update-multi-step"
 version = "0.1.0"
-description = "两轮修订：第二轮新增事实后，第一轮的禁用句式要求仍然有效，旧事实也不能丢。"
+description = "三轮修订：新增事实后旧约束仍然有效，最后一轮只改一个数字，相邻的数字和其他事实都不能跟着动。"
 authors = [{ name = "ktwu01" }]
 keywords = [ "chinese", "writing", "instruction-following", "multi-turn",]
 
@@ -40,3 +40,6 @@ name = "step-1"
 
 [[steps]]
 name = "step-2"
+
+[[steps]]
+name = "step-3"

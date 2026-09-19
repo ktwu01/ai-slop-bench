@@ -13,8 +13,14 @@ working directory. Nothing else about the prompt changes.
 The multi-step task is run as two turns of one session (`codex exec resume`), so
 the second turn really has to remember the first turn's constraints.
 
-    python3 dev/run_agent_codex.py                # all units
-    python3 dev/run_agent_codex.py protected-quote  # one task
+    python3 dev/run_agent_codex.py                     # all units, one draw
+    python3 dev/run_agent_codex.py protected-quote     # one task
+    python3 dev/run_agent_codex.py --repeat 10         # ten draws per task
+
+A single draw does not measure a pass rate. A model that truly passes 90% of
+the time clears nine independent attempts about 39% of the time, so one green
+sweep is consistent with a task that fails one run in ten. `--repeat` samples
+each task k times and reports passes/k, which is the number worth quoting.
 
 Results land in `dev/agent_runs/<timestamp>/`: the prompt, the delivered text,
 the grader output and a summary JSON per unit.
@@ -99,6 +105,9 @@ def deliver(workdir: Path) -> str | None:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("only", nargs="*", help="task directory names; default all")
+    parser.add_argument(
+        "--repeat", type=int, default=1, help="independent draws per task (default 1)"
+    )
     args = parser.parse_args()
 
     if not shutil.which("codex"):
@@ -119,43 +128,50 @@ def main() -> int:
         return 2
 
     summary: list[dict] = []
+    draws: dict[str, list[float]] = {t: [] for t in selected}
+    for draw in range(args.repeat):
+        for task in selected:
+            workdir = Path(tempfile.mkdtemp(prefix=f"slop-{task}-"))
+            session: str | None = None
+            final = 0.0
+            for key, tests_dir, _ in by_task[task]:
+                slug = f"{key.replace('/', '__')}.r{draw}"
+                step_dir = tests_dir.parent
+                prompt = prompt_for(step_dir / "instruction.md")
+                (outdir / f"{slug}.prompt.txt").write_text(prompt, encoding="utf-8")
+                try:
+                    session, raw = run_codex(workdir, prompt, session)
+                except subprocess.TimeoutExpired:
+                    session, raw = session, "TIMEOUT"
+                (outdir / f"{slug}.codex.jsonl").write_text(raw, encoding="utf-8")
+
+                answer = deliver(workdir)
+                if answer is None:
+                    record = {"unit": key, "draw": draw, "reward": 0.0, "failed": ["no_output_file"]}
+                    print(f"FAIL  {key} #{draw}: 没有产出 output.txt")
+                else:
+                    (outdir / f"{slug}.output.txt").write_text(answer, encoding="utf-8")
+                    reward, failed, stdout = grade(tests_dir, answer)
+                    (outdir / f"{slug}.grade.txt").write_text(stdout, encoding="utf-8")
+                    record = {"unit": key, "draw": draw, "reward": reward, "failed": sorted(failed)}
+                    verdict = "PASS" if reward == 1.0 else "FAIL"
+                    print(f"{verdict}  {key} #{draw}: reward={reward} failed={sorted(failed)}")
+                summary.append(record)
+                # The multi-step task's trial reward is its final step.
+                final = record["reward"]
+            draws[task].append(final)
+
+    rates = {t: sum(1 for r in v if r == 1.0) / len(v) for t, v in draws.items() if v}
+    print("")
     for task in selected:
-        workdir = Path(tempfile.mkdtemp(prefix=f"slop-{task}-"))
-        session: str | None = None
-        for key, tests_dir, _ in by_task[task]:
-            slug = key.replace("/", "__")
-            step_dir = tests_dir.parent
-            prompt = prompt_for(step_dir / "instruction.md")
-            (outdir / f"{slug}.prompt.txt").write_text(prompt, encoding="utf-8")
-            try:
-                session, raw = run_codex(workdir, prompt, session)
-            except subprocess.TimeoutExpired:
-                session, raw = session, "TIMEOUT"
-            (outdir / f"{slug}.codex.jsonl").write_text(raw, encoding="utf-8")
-
-            answer = deliver(workdir)
-            if answer is None:
-                record = {"unit": key, "reward": 0.0, "failed": ["no_output_file"]}
-                print(f"FAIL  {key}: 没有产出 output.txt")
-            else:
-                (outdir / f"{slug}.output.txt").write_text(answer, encoding="utf-8")
-                reward, failed, stdout = grade(tests_dir, answer)
-                (outdir / f"{slug}.grade.txt").write_text(stdout, encoding="utf-8")
-                record = {"unit": key, "reward": reward, "failed": sorted(failed)}
-                verdict = "PASS" if reward == 1.0 else "FAIL"
-                print(f"{verdict}  {key}: reward={reward} failed={sorted(failed)}")
-            summary.append(record)
-
-    # The multi-step task's trial reward is its final step.
-    trials: dict[str, float] = {}
-    for record in summary:
-        trials[record["unit"].split("/")[0]] = record["reward"]
-    passed = sum(1 for r in trials.values() if r == 1.0)
-    print(f"\n{passed}/{len(trials)} 个任务通过（多步任务以最后一步计分）")
+        hits = sum(1 for r in draws[task] if r == 1.0)
+        print(f"{hits}/{len(draws[task])}  {task}")
+    overall = sum(rates.values()) / len(rates)
+    print(f"\n平均通过率 {overall:.2f}（每个任务 {args.repeat} 次抽样，多步任务以最后一步计分）")
 
     (outdir / "summary.json").write_text(
         json.dumps(
-            {"units": summary, "tasks": trials, "passed": passed, "total": len(trials)},
+            {"units": summary, "draws": draws, "pass_rate": rates, "repeat": args.repeat},
             ensure_ascii=False,
             indent=2,
         ),

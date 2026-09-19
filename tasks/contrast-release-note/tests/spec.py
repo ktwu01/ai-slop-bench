@@ -66,7 +66,14 @@ INVENTED = (
     "修复",
     "敬请期待",
     "停机",
+    # The draft ends with a line about the export feature being retired. It is
+    # another team's notice, so carrying it forward is the failure this task
+    # actually tests: the draft rewards preservation everywhere else.
     "导出",
+    "下线",
+    "下架",
+    "停用",
+    "数据组",
     "说法不实",
     "失实",
     "谣传",
