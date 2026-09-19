@@ -6,7 +6,11 @@ Two things must hold before a task is worth running against a model:
 1. the committed `solution/solve.sh` answer scores 1.0, so the task is solvable
    and the checker is not accidentally impossible;
 2. each counterexample in `dev/fixtures.py` scores 0.0 *and* is caught by the
-   rule that is supposed to catch it, so a rule cannot silently stop working.
+   rule that is supposed to catch it, so a rule cannot silently stop working;
+3. each natural paraphrase in `PASSING` also scores 1.0, so a rule that is too
+   strict is caught too. A checker can only get stricter by accident: tightening
+   a rule still passes every counterexample, so without this direction the task
+   quietly becomes unsolvable.
 
 This runs the real `tests/grade.py` entrypoint as a subprocess, so it exercises
 the same code path the Harbor verifier uses.
@@ -26,7 +30,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "dev"))
 
-from fixtures import FAILING  # noqa: E402
+from fixtures import FAILING, PASSING  # noqa: E402
 
 HEREDOC = re.compile(r"<<'TXT'\n(.*?)\nTXT\n", re.DOTALL)
 
@@ -67,6 +71,7 @@ def grade(tests_dir: Path, answer: str) -> tuple[float, set[str], str]:
                 "PATH": "/usr/bin:/bin",
                 "PYTHONIOENCODING": "utf-8",
             },
+            timeout=60,
         )
         reward_path = tmpdir / "reward.json"
         if not reward_path.exists():
@@ -92,6 +97,16 @@ def main() -> int:
             )
         else:
             print(f"ok    {key}: 参照答案通过")
+
+        for label, answer in PASSING.get(key, []):
+            reward, failed, stdout = grade(tests_dir, answer)
+            checked += 1
+            if reward != 1.0:
+                problems.append(
+                    f"{key} / {label}: 自然改写被判失败，规则 {sorted(failed)}\n{stdout}"
+                )
+            else:
+                print(f"ok    {key} / {label}: 自然改写通过")
 
         for label, answer, expected_rule in FAILING.get(key, []):
             reward, failed, stdout = grade(tests_dir, answer)
