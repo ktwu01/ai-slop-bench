@@ -78,8 +78,15 @@ def run_codex(workdir: Path, prompt: str, resume_session: str | None) -> tuple[s
     if resume_session:
         cmd += ["resume", resume_session]
     cmd += [prompt]
+    # Without DEVNULL codex keeps the turn open waiting for more stdin and the
+    # call never returns.
     proc = subprocess.run(
-        cmd, capture_output=True, text=True, timeout=TIMEOUT_SEC, cwd=str(workdir)
+        cmd,
+        capture_output=True,
+        text=True,
+        timeout=TIMEOUT_SEC,
+        cwd=str(workdir),
+        stdin=subprocess.DEVNULL,
     )
     raw = proc.stdout + proc.stderr
     if proc.returncode != 0 and "thread.started" not in proc.stdout:
