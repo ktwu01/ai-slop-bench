@@ -4,5 +4,5 @@
 set -euo pipefail
 
 cat > /app/output.txt <<'TXT'
-这次回滚会撤回当前版本，恢复到上一个稳定版本。
+回滚会撤回当前版本，恢复到上一个稳定版本，数据不动。
 TXT

@@ -12,7 +12,7 @@ family = "opener-closer"
 role = "target"
 split = "public"
 register = "group-chat-reply"
-rules_version = "v0.1.0"
+rules_version = "v0.2.0"
 difficulty = "medium"
 category = "writing"
 

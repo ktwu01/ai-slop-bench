@@ -12,7 +12,7 @@ family = "register"
 role = "control"
 split = "public"
 register = "mentor-email"
-rules_version = "v0.1.0"
+rules_version = "v0.2.0"
 difficulty = "medium"
 category = "writing"
 

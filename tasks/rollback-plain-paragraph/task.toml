@@ -12,7 +12,7 @@ family = "coined-terms"
 role = "target"
 split = "public"
 register = "colleague-explanation"
-rules_version = "v0.1.0"
+rules_version = "v0.2.0"
 difficulty = "medium"
 category = "writing"
 

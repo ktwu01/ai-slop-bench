@@ -13,7 +13,7 @@ family = "multi-turn"
 role = "target"
 split = "public"
 register = "status-update"
-rules_version = "v0.1.0"
+rules_version = "v0.2.0"
 difficulty = "hard"
 category = "writing"
 
