@@ -47,8 +47,9 @@
 | [好好说话](https://github.com/Job-Yang/jobbyang-ai-skills/tree/dd94fe96780332a981da1b692c2a0af7fd463ea4/skills/haohao-shuohua) | 纠错语义、术语、数字、条件与承诺保留 | B2 对比句检查包含建议层；真实纠错不能被删除 |
 | [OpenAI 写作风格指南](https://developers.openai.com/api/docs/guides/latest-model#gpt-6-astra-personality-and-writing-style) | 减少不必要的格式、套话、无由来的对比和自造标签 | 官方文档给的是行为观察与提示建议，不能作为模型已达标的证据 |
 | [lieflat-less-ai-tone](https://github.com/larashero3-dotcom/lieflat-less-ai-tone/tree/27d29232f10124db904ca9c0536d0b67cb3b2833) | 中文模板表达、保留作者习惯 | 项目说明其统计语料未公开；频率结论暂不能由本项目独立复核 |
-| 作者使用的本地 `shuorenhua` 快照 | 标准术语、中性分类名、原因未查明时不补解释 | 主要适合技术分析，禁口语的偏好不能推广到朋友聊天 |
-| 作者使用的本地 `stop-slop`、`no-ai-slop` 快照 | 直接表达、减少空话、保留作者口吻、最小改动 | 对副词、被动语态、口语和节奏的要求有差异，不能取所有禁令的并集 |
+| [`shuorenhua` 已核验镜像](https://github.com/ktwu01/codex-settings/blob/f31ae30c5154f79eb3f62ba9aacdbe1452d5104d/skills/shuorenhua/SKILL.md)（私有） | 标准术语、中性分类名、原因未查明时不补解释 | 尚未确认公开上游；禁口语的偏好不能推广到朋友聊天 |
+| [Hardik Pandya 的 `stop-slop`](https://github.com/hardikpandya/stop-slop/tree/8da1f030185bdfe8471220585162991eaeb970e9) | 直接表达、减少空话、句式与结构检查 | 对副词和被动语态的强限制不能直接推广到所有文体 |
+| [Peter Yang 的 `no-ai-slop`](https://github.com/petergyang/no-ai-slop/tree/b53e2659b986093f7c681d8b4e998715e90da2a2) | 保留作者口吻、最小改动、定位问题表达 | 与其他 skills 的编辑偏好有差异，不能取所有禁令的并集 |
 
 这些来源已经包含评测经验。Sepia 的[公开发布说明测试](https://github.com/Nanako0129/sepia/tree/fef880eecf5aea7e28d7cab8ed3dabd9cc6822d5/evals/deaify-release-note)结合了规则检查和 LLM 评分；好好说话提到 50 条 BadCase 和独立评测技能，但本次未在固定版本的公开目录中找到完整的独立评测包。它们是应注明的先例，现成例子只适合作为开发材料。正式题另写，避免把已经公开的样例包装成隐藏测试。
 
@@ -255,9 +256,11 @@ B 条件先定位明确要求后仍存在的失败；补齐 A/C 后，再比较�
 
 ## 来源固定记录
 
-公共来源的提交号见上表。三个 GitHub 项目在本次查阅时均标注 MIT；正式复用代码或文本时保留相应许可及署名。上游引用的第三方语料另查来源，仓库许可不自动覆盖所有引用材料。
+公共来源的提交号见上表。五个公开 skill 仓库在已核验的版本中均标注 MIT；正式复用代码或文本时保留相应许可及署名。上游引用的第三方语料另查来源，仓库许可不自动覆盖所有引用材料。`shuorenhua` 私有镜像的存在不构成原作者许可的证明。
 
-以下 SHA-256 记录撰写原提案时读取的本地 skill 主文件快照。快照正文未随本仓库发布，不能仅凭此表复现实验。正式加载 skill 做评测时，需固定可访问的版本，并将所有被读取的 references 一并列入 manifest 和哈希。
+已核验这些本地文件的远端来源。`haohao-shuohua`、`stop-slop` 和 `no-ai-slop` 均有完全匹配的公开上游版本；`shuorenhua` 仅确认了完全匹配的私有镜像。详见[远端来源与版本核验](skill-sources.md)，其中列出固定提交、访问限制和版本差异。
+
+以下 SHA-256 对应实际读取的主文件，并与已核验的远端文件一致。正式加载 skill 做评测时，仍需把所有实际读取的 references 一并列入 manifest 和哈希。
 
 ```text
 haohao-shuohua  919d95dc532e8fb63a52ce9a20f044d5bc3a22ace5de207fc2062950b895f772
@@ -265,3 +268,7 @@ shuorenhua     0012b8ecf22e33671d0176a0d689343f4c3d2a6f958efee957338a712c6e39a4
 stop-slop      7432a1d9ebdd42b27666da8458af252edf549f723fb14bcd4791425103930310
 no-ai-slop     16719efd6dc6fe5978be7f6db41a474ca246970e5014acc057e29d7bfbd63b0e
 ```
+
+## 相关项目
+
+[Language Defensive Bench](https://github.com/ktwu01/language-defensive-bench)研究纠正后的无关解释和约束范围，详见其[提案 issue](https://github.com/ktwu01/language-defensive-bench/issues/1)。该仓库目前为私有，需要访问权限。两个项目分别维护题集和成绩。

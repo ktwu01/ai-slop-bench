@@ -23,6 +23,13 @@ A proposed benchmark for Chinese LLM writing and rewriting, combining verifiable
 - [完整提案](docs/proposal.md)：任务分配、例题、评分、对照与复现协议。
 - [后续实验计划](https://github.com/ktwu01/ai-slop-bench/issues/1)：题集整理、改写基线和专用改写模型的训练条件。
 - [研究背景](docs/proposal.md#研究背景)：测量目标、裁判可靠性和公开指标的局限。
+- [Skill 远端来源](docs/skill-sources.md)：公开上游、私有镜像、固定提交和文件匹配结果。
+
+## 相关项目
+
+[Language Defensive Bench](https://github.com/ktwu01/language-defensive-bench)研究多轮纠正后仍进入最终交付的无关历史，以及局部纠正被扩大成长期禁令的现象。[提案 issue](https://github.com/ktwu01/language-defensive-bench/issues/1)记录任务与评分设计。该仓库目前为私有，需要访问权限。
+
+两个项目分别维护题集和成绩，可以参考彼此的规则检查、人工标注和反例设计。
 
 ## 提供案例
 
