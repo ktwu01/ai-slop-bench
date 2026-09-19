@@ -1,0 +1,51 @@
+# Dataset manifest for ai-slop-bench/mvp10
+# Add tasks using: harbor add <org>/<name>
+# Publish using: harbor publish
+
+[dataset]
+name = "ai-slop-bench/mvp10"
+version = "1.0.0"
+description = "AI Slop Bench MVP：10 道中文写作与改写任务，测明确表达要求的遵循与信息保真。"
+authors = [{ name = "ktwu01" }]
+keywords = [ "chinese", "writing", "instruction-following", "slop",]
+
+[[tasks]]
+name = "ai-slop-bench/contrast-release-note"
+digest = "sha256:61b6728990c2326ae60966c22f53742d81a880ee2102e4e920709276f8cdb1ab"
+
+[[tasks]]
+name = "ai-slop-bench/contrast-correction"
+digest = "sha256:0303f6497cbb9dad5d36626c961013b2d388e21a4ba2a492a8ae058ebc249640"
+
+[[tasks]]
+name = "ai-slop-bench/protected-quote"
+digest = "sha256:1a49d9cf8bf5f5873bfa2cff712a29e25908f041136b1fef9738540fd4374b74"
+
+[[tasks]]
+name = "ai-slop-bench/refund-no-new-promise"
+digest = "sha256:deb08036c4385fd9e874858e5b033da7a4f72fd24c108db597fd331d5966e7b4"
+
+[[tasks]]
+name = "ai-slop-bench/handover-keep-list"
+digest = "sha256:6868a790ee7c61ee56eb087c3ba200bc1d0e2261ce5cb312652164bc319ad0b9"
+
+[[tasks]]
+name = "ai-slop-bench/rollback-plain-paragraph"
+digest = "sha256:6a0578617b0f9d3493c44c9243e38888fc98cf0d159dd779245ff7e60ef6a012"
+
+[[tasks]]
+name = "ai-slop-bench/incident-uncertain-cause"
+digest = "sha256:b3d2d5c4ba2272be51e42b987c4db7d48631c3e08f56864bbc44adf0538b1021"
+
+[[tasks]]
+name = "ai-slop-bench/query-result-no-fluff"
+digest = "sha256:e5fcd30f35dc0e1144358111fcf9a3e2410709d3350fbe130163d04546efc557"
+
+[[tasks]]
+name = "ai-slop-bench/mentor-email-keep-thanks"
+digest = "sha256:5ce44486fad84e3ee947588ea1766f94dc3840b5d7526dbaa5ae0101a4024f5c"
+
+[[tasks]]
+name = "ai-slop-bench/status-update-multi-step"
+digest = "sha256:783b2d12cb8ddb741d0af911cf26d23eebf4c5f9d6a056e2491de8bcf91ab456"
+
