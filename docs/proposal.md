@@ -39,7 +39,7 @@
 
 ### 参考来源提供候选规则
 
-以下版本用于追溯本次提案。引用 skill 表示采用其中的观察作为出题线索，不代表接受它的全部判断。
+以下来源提供出题线索。每条规则都要结合具体任务，明确适用文体和合理例外。
 
 | 来源 | 可提取的任务 | 需要保留的边界 |
 |---|---|---|
@@ -47,11 +47,11 @@
 | [好好说话](https://github.com/Job-Yang/jobbyang-ai-skills/tree/dd94fe96780332a981da1b692c2a0af7fd463ea4/skills/haohao-shuohua) | 纠错语义、术语、数字、条件与承诺保留 | B2 对比句检查包含建议层；真实纠错不能被删除 |
 | [OpenAI 写作风格指南](https://developers.openai.com/api/docs/guides/latest-model#gpt-6-astra-personality-and-writing-style) | 减少不必要的格式、套话、无由来的对比和自造标签 | 官方文档给的是行为观察与提示建议，不能作为模型已达标的证据 |
 | [lieflat-less-ai-tone](https://github.com/larashero3-dotcom/lieflat-less-ai-tone/tree/27d29232f10124db904ca9c0536d0b67cb3b2833) | 中文模板表达、保留作者习惯 | 项目说明其统计语料未公开；频率结论暂不能由本项目独立复核 |
-| [`shuorenhua` 已核验镜像](https://github.com/ktwu01/codex-settings/blob/f31ae30c5154f79eb3f62ba9aacdbe1452d5104d/skills/shuorenhua/SKILL.md)（私有） | 标准术语、中性分类名、原因未查明时不补解释 | 尚未确认公开上游；禁口语的偏好不能推广到朋友聊天 |
+| [`shuorenhua`](https://github.com/ktwu01/codex-settings/blob/f31ae30c5154f79eb3f62ba9aacdbe1452d5104d/skills/shuorenhua/SKILL.md)（私有镜像） | 标准术语、中性分类名、原因未查明时不补解释 | 禁口语的偏好不能推广到朋友聊天 |
 | [Hardik Pandya 的 `stop-slop`](https://github.com/hardikpandya/stop-slop/tree/8da1f030185bdfe8471220585162991eaeb970e9) | 直接表达、减少空话、句式与结构检查 | 对副词和被动语态的强限制不能直接推广到所有文体 |
 | [Peter Yang 的 `no-ai-slop`](https://github.com/petergyang/no-ai-slop/tree/b53e2659b986093f7c681d8b4e998715e90da2a2) | 保留作者口吻、最小改动、定位问题表达 | 与其他 skills 的编辑偏好有差异，不能取所有禁令的并集 |
 
-这些来源已经包含评测经验。Sepia 的[公开发布说明测试](https://github.com/Nanako0129/sepia/tree/fef880eecf5aea7e28d7cab8ed3dabd9cc6822d5/evals/deaify-release-note)结合了规则检查和 LLM 评分；好好说话提到 50 条 BadCase 和独立评测技能，但本次未在固定版本的公开目录中找到完整的独立评测包。它们是应注明的先例，现成例子只适合作为开发材料。正式题另写，避免把已经公开的样例包装成隐藏测试。
+Sepia 的[公开发布说明测试](https://github.com/Nanako0129/sepia/tree/fef880eecf5aea7e28d7cab8ed3dabd9cc6822d5/evals/deaify-release-note)结合了规则检查和 LLM 评分，可供检查器与评分协议设计参考。公开样例只作为开发材料，正式题独立编写。
 
 好好说话存在值得测试的规则冲突：主文件限制对比句，受保护跨度说明要求保留纠错意义，症状库还给过倒置对比的改法。因此每条规则都要写清 `scope`、`exceptions` 和 `required_meaning`。对同一形式存在分歧时，先看题目明确要求的文体。
 
@@ -253,21 +253,6 @@ Antislop 给出了训练减少重复表达的先例，文中也报告 DPO 在其
 - 分项结果、失败分析和局限说明，不预填“当前模型普遍低分”的结论。
 
 B 条件先定位明确要求后仍存在的失败；补齐 A/C 后，再比较提示与 skill 的增益和副作用。专用模型的训练决策还需独立的改写留出集。
-
-## 来源固定记录
-
-公共来源的提交号见上表。五个公开 skill 仓库在已核验的版本中均标注 MIT；正式复用代码或文本时保留相应许可及署名。上游引用的第三方语料另查来源，仓库许可不自动覆盖所有引用材料。`shuorenhua` 私有镜像的存在不构成原作者许可的证明。
-
-`haohao-shuohua`、`stop-slop` 和 `no-ai-slop` 均引用已核验的公开上游版本；`shuorenhua` 仅确认私有镜像，尚未确认公开上游。详见[远端来源与版本核验](skill-sources.md)，其中列出固定提交、访问限制和版本差异。
-
-以下 SHA-256 对应已核验远端来源在固定提交中的 `SKILL.md`。正式加载 skill 做评测时，仍需把所有实际读取的 references 一并列入 manifest 和哈希。
-
-```text
-haohao-shuohua  919d95dc532e8fb63a52ce9a20f044d5bc3a22ace5de207fc2062950b895f772
-shuorenhua     0012b8ecf22e33671d0176a0d689343f4c3d2a6f958efee957338a712c6e39a4
-stop-slop      7432a1d9ebdd42b27666da8458af252edf549f723fb14bcd4791425103930310
-no-ai-slop     16719efd6dc6fe5978be7f6db41a474ca246970e5014acc057e29d7bfbd63b0e
-```
 
 ## 相关项目
 

@@ -23,7 +23,7 @@ A proposed benchmark for Chinese LLM writing and rewriting, combining verifiable
 - [完整提案](docs/proposal.md)：任务分配、例题、评分、对照与复现协议。
 - [后续实验计划](https://github.com/ktwu01/ai-slop-bench/issues/1)：题集整理、改写基线和专用改写模型的训练条件。
 - [研究背景](docs/proposal.md#研究背景)：测量目标、裁判可靠性和公开指标的局限。
-- [Skill 远端来源](docs/skill-sources.md)：公开上游、私有镜像、固定提交和 SHA-256。
+- [出题参考](docs/proposal.md#参考来源提供候选规则)：写作 skills 中的候选规则与适用边界。
 
 ## 相关项目
 
