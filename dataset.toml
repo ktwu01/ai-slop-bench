@@ -11,15 +11,15 @@ keywords = [ "chinese", "writing", "instruction-following", "slop",]
 
 [[tasks]]
 name = "ai-slop-bench/contrast-release-note"
-digest = "sha256:1b1dce27857e7341bdde37a20cc7405516011eaa43ec2f263cf0c7430fd664fe"
+digest = "sha256:6eb44b3aa7a5b1aa3d2c23305a35939ed3f87b0c785409b94a65c2c809a09734"
 
 [[tasks]]
 name = "ai-slop-bench/contrast-correction"
-digest = "sha256:539284eed9002f4fac05190addf4f533143b7863f295a066bd19f76326ed18dd"
+digest = "sha256:d0cdb8f76d92ac86867dcdd2f12b5c9a4c07854029e1e79831678b553156b975"
 
 [[tasks]]
 name = "ai-slop-bench/protected-quote"
-digest = "sha256:926809566957349d25dceacca0d06c88092559b30420e2a2d4000fa5c07d06a3"
+digest = "sha256:f47d5fcd2a882a554be44406a8a63f27688c3c87295ae089761d5e4408bb88df"
 
 [[tasks]]
 name = "ai-slop-bench/refund-no-new-promise"
@@ -35,11 +35,11 @@ digest = "sha256:f445bbf8158249be3df0f484a87d8f9963c32696da207af1036d5348c1091c0
 
 [[tasks]]
 name = "ai-slop-bench/incident-uncertain-cause"
-digest = "sha256:93ec2abe0cbaaf8fb81753f45b0558d84ff4f540d22ae3becfd0411a0c7d0d3a"
+digest = "sha256:e0fecfdb11b0792fafdb280128b82ffe7466024d580a89af5071d711499ebd43"
 
 [[tasks]]
 name = "ai-slop-bench/query-result-no-fluff"
-digest = "sha256:57b1ff3eb9f01a4acd3fa0cbe9d38ec49ffc0907672d71e5a5bd741ff395a701"
+digest = "sha256:c636cc6b52aa3d8af25a5bc2f8cd38df08cbca253a7d9aa3072730a24d71aa57"
 
 [[tasks]]
 name = "ai-slop-bench/mentor-email-keep-thanks"

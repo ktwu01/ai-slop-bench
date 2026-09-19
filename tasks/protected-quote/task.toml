@@ -3,7 +3,7 @@ schema_version = "1.4"
 [task]
 name = "ai-slop-bench/protected-quote"
 version = "0.1.0"
-description = "受保护引文里含被禁句式，须逐字保留且只出现一次，引文之外仍禁用该句式。"
+description = "同一则通知的第一句须逐字保留且只出现一次，紧邻的第二句反过来只能转述，不得照抄。"
 authors = [{ name = "ktwu01" }]
 keywords = [ "chinese", "writing", "instruction-following", "protected-span",]
 

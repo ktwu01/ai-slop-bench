@@ -3,7 +3,7 @@ schema_version = "1.4"
 [task]
 name = "ai-slop-bench/query-result-no-fluff"
 version = "0.1.0"
-description = "禁用开场与结尾套话，直接给出查询结果并保住两项数据。"
+description = "禁用开场与结尾套话，直接给出查询结果，把日期绑到它真正属于的那部分记录上。"
 authors = [{ name = "ktwu01" }]
 keywords = [ "chinese", "writing", "instruction-following", "opener-closer",]
 

@@ -3,7 +3,7 @@ schema_version = "1.4"
 [task]
 name = "ai-slop-bench/contrast-correction"
 version = "0.1.0"
-description = "禁用「不是……而是……」，但必须保留明确的日期纠正，不能把否定半句整句删掉。"
+description = "局部更正：通知里只有日期写错了，改日期时挨着它的会议室和设备检查都必须原样保住。"
 authors = [{ name = "ktwu01" }]
 keywords = [ "chinese", "writing", "instruction-following", "contrast",]
 

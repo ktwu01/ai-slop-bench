@@ -3,7 +3,7 @@ schema_version = "1.4"
 [task]
 name = "ai-slop-bench/contrast-release-note"
 version = "0.1.0"
-description = "禁用「不是……而是……」写上线通知，同时保住三项事实和字数上限。"
+description = "禁用「不是……而是……」写上线通知，保住五项事实和字数上限，同时丢掉草稿里属于别人的那条通知。"
 authors = [{ name = "ktwu01" }]
 keywords = [ "chinese", "writing", "instruction-following", "contrast",]
 

@@ -3,7 +3,7 @@ schema_version = "1.4"
 [task]
 name = "ai-slop-bench/incident-uncertain-cause"
 version = "0.1.0"
-description = "原因未查明时不得把同时发生写成因果，同时保住时间、指标和发布事实。"
+description = "原因未查明时不得把同时发生写成因果，两天的错误率还要各自绑在自己那一天上。"
 authors = [{ name = "ktwu01" }]
 keywords = [ "chinese", "writing", "instruction-following", "cause-and-modality",]
 
