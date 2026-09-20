@@ -49,4 +49,4 @@ strict-v1 对任意一处确认的风格或交付问题都判整题失败，`rew
 
 `tasks/` 中的十道旧题保留为明确约束下的诊断材料：`contrast-release-note`、`contrast-correction`、`protected-quote`、`refund-no-new-promise`、`handover-keep-list`、`rollback-plain-paragraph`、`incident-uncertain-cause`、`query-result-no-fluff`、`mentor-email-keep-thanks`、`status-update-multi-step`。
 
-`dataset.toml`、`shared/` 和旧运行脚本服务于这些任务。它们的 oracle、自检和得分只验证当时声明的规则，不能证明当前自然写作题有难度。重放说明见[历史审计](audit-2026-09-19.md)。Harbor 可作调度适配，框架本身不是实验要求。
+`dataset.toml`、`shared/` 和旧运行脚本服务于这些任务。它们的 oracle、自检和得分只验证当时声明的规则，不能证明当前自然写作题有难度。Harbor 可作调度适配，框架本身不是实验要求。

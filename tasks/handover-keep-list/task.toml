@@ -2,8 +2,8 @@ schema_version = "1.4"
 
 [task]
 name = "ai-slop-bench/handover-keep-list"
-version = "0.1.0"
-description = "用户明确要求清单，输出必须保留清单结构，不得改写成散文。"
+version = "0.2.0"
+description = "按清单交接未完成事项，进度写在括号里且措辞各不相同，不能只看有没有「已完成」三个字。"
 authors = [{ name = "ktwu01" }]
 keywords = [ "chinese", "writing", "instruction-following", "unrequested-format",]
 
@@ -12,7 +12,7 @@ family = "unrequested-format"
 role = "control"
 split = "public"
 register = "handover-note"
-rules_version = "v0.2.0"
+rules_version = "v0.3.1"
 difficulty = "easy"
 category = "writing"
 

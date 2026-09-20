@@ -26,8 +26,6 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-import spec  # noqa: E402  (task-local module, uploaded next to this file)
-from slopcheck import RULES_VERSION, Result, Text  # noqa: E402
 
 # Harbor reads /logs/verifier; the override exists so the repo's self-check can
 # grade the reference and counterexample answers without a container.
@@ -104,7 +102,10 @@ def _write(reward: dict[str, float]) -> None:
 
 
 def main() -> int:
+    global spec, RULES_VERSION, Result, Text
     try:
+        import spec  # task-local imports must emit verifier_ok=0 on failure
+        from slopcheck import RULES_VERSION, Result, Text
         results, _ = load_results()
         print(f"task: {spec.TASK_ID}  rules: {RULES_VERSION}")
         for r in results:

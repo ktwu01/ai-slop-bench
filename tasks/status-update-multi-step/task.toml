@@ -3,17 +3,18 @@ multi_step_reward_strategy = "final"
 
 [task]
 name = "ai-slop-bench/status-update-multi-step"
-version = "0.1.0"
-description = "三轮修订：新增事实后旧约束仍然有效，最后一轮只改一个数字，相邻的数字和其他事实都不能跟着动。"
+version = "0.2.0"
+description = "三轮修订：旧约束默认继续有效，最后一轮既只改一个数字，又把第一轮的句式禁令反过来变成必须用一次。"
 authors = [{ name = "ktwu01" }]
 keywords = [ "chinese", "writing", "instruction-following", "multi-turn",]
 
 [metadata]
+# 第三轮把第一轮的句式禁令反过来，要求必须用一次。这是多轮指令遵循题，不是套话诱发题。
 family = "multi-turn"
 role = "target"
 split = "public"
 register = "status-update"
-rules_version = "v0.2.0"
+rules_version = "v0.3.1"
 difficulty = "hard"
 category = "writing"
 

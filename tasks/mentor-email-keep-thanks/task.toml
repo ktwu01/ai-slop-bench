@@ -2,8 +2,8 @@ schema_version = "1.4"
 
 [task]
 name = "ai-slop-bench/mentor-email-keep-thanks"
-version = "0.1.0"
-description = "写给导师的邮件必须保留一句明确致谢，不得因为去套话而删掉必要的礼节。"
+version = "0.2.0"
+description = "邮件里的致谢要写明导师到底改了什么，同时不提另外两件已经谢过或已自行解决的事。"
 authors = [{ name = "ktwu01" }]
 keywords = [ "chinese", "writing", "instruction-following", "register",]
 
@@ -12,7 +12,7 @@ family = "register"
 role = "control"
 split = "public"
 register = "mentor-email"
-rules_version = "v0.2.0"
+rules_version = "v0.3.1"
 difficulty = "medium"
 category = "writing"
 

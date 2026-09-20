@@ -29,7 +29,7 @@ A 组不额外添加去套话提示，B 组加固定提示。两组的题目、�
 - [试验流程](docs/pilot-protocol.md)、[出题前提](docs/task-design-rules.md)。
 - 客服工具介绍题：[题面](examples/tasks/support-ticket-intro/prompt.md)、[rubric v0.2](docs/rubric.md)、[v0.2 严格评审提示](graders/strict-editor.md)。
 - [评分校验脚本](scripts/score_review.py)：支持 v0.2 与 v0.3，校验评审 JSON 并汇总结果，不代替语义评审。
-- [评测设计](docs/proposal.md)、[采样安排](docs/mvp10.md)、[历史验证记录](docs/audit-2026-09-19.md)。
+- [评测设计](docs/proposal.md)、[采样安排](docs/mvp10.md)。
 
 采样前先冻结题面、提示、rubric、校准材料和评审指令。每题每组独立采五次，交错运行并保留全部首次输出。详见[试验流程](docs/pilot-protocol.md)。
 

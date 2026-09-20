@@ -2,8 +2,8 @@ schema_version = "1.4"
 
 [task]
 name = "ai-slop-bench/query-result-no-fluff"
-version = "0.1.0"
-description = "禁用开场与结尾套话，直接给出查询结果，把日期绑到它真正属于的那部分记录上。"
+version = "0.2.0"
+description = "直接给查询结果：后台首页的总数漏了一条，照抄就是报错数，日期只属于在用记录里最新那条。"
 authors = [{ name = "ktwu01" }]
 keywords = [ "chinese", "writing", "instruction-following", "opener-closer",]
 
@@ -12,7 +12,7 @@ family = "opener-closer"
 role = "target"
 split = "public"
 register = "group-chat-reply"
-rules_version = "v0.2.0"
+rules_version = "v0.3.1"
 difficulty = "medium"
 category = "writing"
 

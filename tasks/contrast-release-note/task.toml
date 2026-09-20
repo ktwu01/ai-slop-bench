@@ -2,8 +2,8 @@ schema_version = "1.4"
 
 [task]
 name = "ai-slop-bench/contrast-release-note"
-version = "0.1.0"
-description = "禁用「不是……而是……」写上线通知，保住五项事实和字数上限，同时丢掉草稿里属于别人的那条通知。"
+version = "0.2.0"
+description = "禁用「不是……而是……」写上线通知，被否定的那半句仍是必需信息，登录条件只管筛选不管整页。"
 authors = [{ name = "ktwu01" }]
 keywords = [ "chinese", "writing", "instruction-following", "contrast",]
 
@@ -12,7 +12,7 @@ family = "contrast"
 role = "target"
 split = "public"
 register = "colleague-message"
-rules_version = "v0.2.0"
+rules_version = "v0.3.1"
 difficulty = "medium"
 category = "writing"
 

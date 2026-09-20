@@ -2,8 +2,8 @@ schema_version = "1.4"
 
 [task]
 name = "ai-slop-bench/incident-uncertain-cause"
-version = "0.1.0"
-description = "原因未查明时不得把同时发生写成因果，两天的错误率还要各自绑在自己那一天上。"
+version = "0.2.0"
+description = "说清同时发生不等于有因果，却不能借助任何一个表示因果的词，两天的错误率各绑各的日子。"
 authors = [{ name = "ktwu01" }]
 keywords = [ "chinese", "writing", "instruction-following", "cause-and-modality",]
 
@@ -12,7 +12,7 @@ family = "cause-and-modality"
 role = "target"
 split = "public"
 register = "status-update"
-rules_version = "v0.2.0"
+rules_version = "v0.3.1"
 difficulty = "hard"
 category = "writing"
 

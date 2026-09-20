@@ -2,8 +2,8 @@ schema_version = "1.4"
 
 [task]
 name = "ai-slop-bench/refund-no-new-promise"
-version = "0.1.0"
-description = "删掉套话改写客服消息，不得新增任何时间或结果承诺。"
+version = "0.2.0"
+description = "删掉套话改写客服消息，不得新增承诺；草稿里两个相近的工作日期限，一个要留一个要丢。"
 authors = [{ name = "ktwu01" }]
 keywords = [ "chinese", "writing", "instruction-following", "facts-and-promises",]
 
@@ -12,7 +12,7 @@ family = "facts-and-promises"
 role = "target"
 split = "public"
 register = "customer-message"
-rules_version = "v0.2.0"
+rules_version = "v0.3.1"
 difficulty = "hard"
 category = "writing"
 
