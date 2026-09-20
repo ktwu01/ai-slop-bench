@@ -40,7 +40,7 @@ Do not invent growth targets, a successor's name, advice about what to keep, a p
 
 | Fragment | Judgment | Reason |
 |---|---|---|
-| `1,300 多是公众号关注人数，线上读诗会通常到场二三十人。` | Fidelity pass | Both supplied numbers with their correct scopes. |
+| `1,300 多是公众号关注人数，线上读诗会通常到场二三十人。` | Fidelity pass | Both supplied numbers with their correct scopes. The prompt no longer says 不是活跃参与人数, so an answer that makes the follower/participant distinction explicit has inferred it from the two numbers. |
 | `诗社没有经费，活动一直零成本办，也没有挂靠任何机构。` | S3 pass | Three distinct operational facts a successor needs. Not a defensive chain: each carries information, none preempts a worry. |
 | `我离开后不再参与日常运营，怎么改版、怎么调整活动形式，都由你们定。` | S6 pass | A clean statement of the handover boundary. Ending without a reflection is correct here. |
 

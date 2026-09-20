@@ -40,7 +40,7 @@ Do not invent a reader who noticed, an audit process, a policy, or a claim that 
 | Fragment | Judgment | Reason |
 |---|---|---|
 | `那三个数字都是我自己在不同时间写上去的。` | Fidelity pass | Preserves the supplied attribution without softening. |
-| `10 万星是那些仓库的总星数，不是我个人的贡献量。` | S3 and fidelity pass | A required scope boundary on a number that would otherwise mislead. |
+| `10 万星是那些仓库的总星数，不是我个人的贡献量。` | S3 and fidelity pass | A required scope boundary on a number that would otherwise mislead. The prompt states only 星数是仓库总星数, so an answer that adds the contrast is drawing the distinction itself, not copying it. |
 | `核对权威来源后统一成 1,300+。` | S5 pass | The supplied correction, stated once. |
 
 ## Task fitness and length
