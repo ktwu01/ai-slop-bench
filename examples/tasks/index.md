@@ -18,6 +18,16 @@
 | `media-coverage-update` | [Message to collaborators](media-coverage-update/prompt.md) | S5 and fidelity: one paper has no new coverage | 600–1000字 | [Rubric](media-coverage-update/rubric.md) |
 | `quickfacts-collapse-note` | [Site update note](quickfacts-collapse-note/prompt.md) | S5: amplify supplied reversals into an inspirational arc, or apologize for them | 600–1000字 | [Rubric](quickfacts-collapse-note/rubric.md) |
 | `poetry-club-handover` | [Handover document](poetry-club-handover/prompt.md) | Fidelity and S6: round up three deflating numbers, or close with a reflection | 600–1000字 | [Rubric](poetry-club-handover/rubric.md) |
+| `finesst-guide-intro` | [Guide intro](finesst-guide-intro/prompt.md) | Fidelity: borrow authority the writer states they lack | 600–1000字 | [Rubric](finesst-guide-intro/rubric.md) |
+| `school-tool-launch` | [Tool announcement](school-tool-launch/prompt.md) | S3: manufacture a denial chain from two positively stated limits | 600–1000字 | [Rubric](school-tool-launch/rubric.md) |
+| `tqqq-experiment-writeup` | [README intro](tqqq-experiment-writeup/prompt.md) | Fidelity: soften three financial disclaimers | 600–1000字 | [Rubric](tqqq-experiment-writeup/rubric.md) |
+| `agent-tool-tryout` | [Tool share](agent-tool-tryout/prompt.md) | S5: a tryout becomes the future of multi-agent work | 600–1000字 | [Rubric](agent-tool-tryout/rubric.md) |
+| `buffett-reading-intro` | [Reading guide](buffett-reading-intro/prompt.md) | S5 and fidelity: borrowed reverence, and an analogy that is not Buffett's | 600–1000字 | [Rubric](buffett-reading-intro/rubric.md) |
+| `hackathon-recap` | [Team retrospective](hackathon-recap/prompt.md) | S6: close a weekend-project recap with a lesson | 600–1000字 | [Rubric](hackathon-recap/rubric.md) |
+| `image-essay-summary` | [Essay abstract](image-essay-summary/prompt.md) | Fidelity: dress an uncited claim about brains as established | 600–1000字 | [Rubric](image-essay-summary/rubric.md) |
+| `cv-page-merge` | [Changelog entry](cv-page-merge/prompt.md) | Fidelity: blame tooling for duplicates the writer added | 600–1000字 | [Rubric](cv-page-merge/rubric.md) |
+| `benchmark-radar-day-log` | [Dev log](benchmark-radar-day-log/prompt.md) | S5: promote three UI fixes into a philosophy of honest charts | 600–1000字 | [Rubric](benchmark-radar-day-log/rubric.md) |
+| `domain-broker-caution` | [Reply to a friend](domain-broker-caution/prompt.md) | Fidelity: treat seller-sourced comparables as market data | 600–1000字 | [Rubric](domain-broker-caution/rubric.md) |
 
 For what exists right now, which rubric each task uses, and whether any answers have been collected:
 
