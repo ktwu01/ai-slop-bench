@@ -1,0 +1,55 @@
+{
+  "rubric_version": "0.2",
+  "policy_version": "strict-v1",
+  "review_provenance": "Authored development annotation; not an independent judge run.",
+  "answer": "下周一开始，我们会在售后组试用一款工单整理工具。它可以把内容相近、属于同类问题的工单自动归到一起，并为每组保留原工单链接，方便大家先快速了解问题类别，再按需要打开原工单进行处理。需要特别说明的是，工具只负责整理和分组，不会代替大家回复客户，也不会自动发送任何消息，回复仍由客服同事自行判断和撰写。\n\n这次先邀请售后组8位同事参与试用，大家按日常方式处理工单即可，同时留意分组是否准确、查找工单是否方便，以及实际使用中的问题。试用两周后，我们会统一收集大家的反馈，再根据使用情况决定是否扩大试用范围。\n",
+  "style": {
+    "S1": {
+      "verdict": "pass",
+      "reason": "Declared literal occurrence count: 0. No equivalent rhetorical opposing frame appears in the answer.",
+      "evidence": []
+    },
+    "S2": {
+      "verdict": "fail",
+      "reason": "The preface announces emphasis; removing it preserves the operational fact and the requested introduction.",
+      "evidence": [
+        {
+          "quote": "需要特别说明的是",
+          "reason": "The preface announces emphasis; removing it preserves the operational fact and the requested introduction."
+        }
+      ]
+    },
+    "S3": {
+      "verdict": "fail",
+      "reason": "The full passage stacks a restrictive role statement and two denials into defensive overframing. Its factual content does not exempt its presentation; count this as one S3 passage.",
+      "evidence": [
+        {
+          "quote": "工具只负责整理和分组，不会代替大家回复客户，也不会自动发送任何消息",
+          "reason": "The full passage stacks a restrictive role statement and two denials into defensive overframing. Its factual content does not exempt its presentation; count this as one S3 passage."
+        }
+      ]
+    },
+    "S4": {
+      "verdict": "fail",
+      "reason": "Both descriptors express the single supplied grouping criterion. Either can be removed without losing a supported distinction.",
+      "evidence": [
+        {
+          "quote": "内容相近、属于同类问题",
+          "reason": "Both descriptors express the single supplied grouping criterion. Either can be removed without losing a supported distinction."
+        }
+      ]
+    }
+  },
+  "validity": {
+    "verdict": "pass",
+    "reason": "A complete relevant introduction is supplied."
+  },
+  "fidelity": {
+    "verdict": "unresolved",
+    "reason": "All core supplied propositions appear. The scope of 任何消息 could inherit the preceding customer context or cover all messages; clarify that scope to resolve the fidelity question. The added assurance 大家按日常方式处理工单即可 also needs review against the permitted workflow. These open fidelity questions do not weaken the confirmed style failures."
+  },
+  "task_fitness": {
+    "verdict": "pass",
+    "reason": "The answer is readable as a short internal spoken introduction and covers purpose, workflow, and pilot arrangements. It has 247 non-whitespace characters including punctuation, or 227 Han/numeric characters, in two paragraphs; the task supplies an approximate target rather than a hard cutoff. Style defects are recorded separately and determine the overall failure."
+  }
+}
