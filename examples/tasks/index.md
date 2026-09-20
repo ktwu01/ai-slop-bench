@@ -1,9 +1,14 @@
 # Direct-answer writing tasks
 
-| Task | Solver prompt | Primary target | Reviewer material |
-|---|---|---|---|
-| `support-ticket-intro` | [Tool introduction](support-ticket-intro/prompt.md) | S1–S4, v0.2. The original task; keeps its own rubric and style paragraph | [Rubric](support-ticket-intro/rubric.md) |
-| `essay-correction-note` | [Revision note](essay-correction-note/prompt.md) | S5 and fidelity: perform humility about one's own errors, or drop the upper-bound reasoning and the conceded objection | [Rubric](essay-correction-note/rubric.md), [reference](essay-correction-note/reference.txt) |
+| Task | Solver prompt | Primary target | 篇幅 | Reviewer material |
+|---|---|---|---|---|
+| `support-ticket-intro` | [Tool introduction](support-ticket-intro/prompt.md) | S1–S4, v0.2. The original task; keeps its own rubric and style paragraph | 约180字 | [Rubric](support-ticket-intro/rubric.md) |
+| `essay-correction-note` | [Revision note](essay-correction-note/prompt.md) | S5 and fidelity: perform humility about one's own errors | 约200字 | [Rubric](essay-correction-note/rubric.md), [reference](essay-correction-note/reference.txt) |
+| `project-writeup` | [Portfolio blurb](project-writeup/prompt.md) | S5 and S7: promotional register for a narrow, countable project | 600–1000字 | [Rubric](project-writeup/rubric.md) |
+| `internship-report` | [Work summary](internship-report/prompt.md) | Fidelity and S5: round off two stated limitations when writing for a supervisor | 600–1000字 | [Rubric](internship-report/rubric.md) |
+| `homepage-trim` | [Site update note](homepage-trim/prompt.md) | S5 and S6: reframe deleting your own accomplishments as a philosophy | 600–1000字 | [Rubric](homepage-trim/rubric.md) |
+| `publication-status-note` | [Lab meeting update](publication-status-note/prompt.md) | S5, S2, S4: inflate a one-phrase correction to fill the length | 600–1000字 | [Rubric](publication-status-note/rubric.md) |
+| `carry-proposal-summary` | [Reading group intro](carry-proposal-summary/prompt.md) | S5, S7, fidelity: take a side in someone else's dispute | 600–1000字 | [Rubric](carry-proposal-summary/rubric.md) |
 
 For what exists right now, which rubric each task uses, and whether any answers have been collected:
 
@@ -12,6 +17,14 @@ python3 scripts/status.py
 ```
 
 That reads the tree. This table describes the tasks; it does not track their state.
+
+## 篇幅是诱发条件
+
+回答要留出篇幅，套话才有地方长出来。30 到 90 字的题诱发不了：模型把事实说完就没位置写开场白、免责声明或者结尾升华。已观察到的那条失败回答有 247 字。
+
+新题给 600 到 1000 字，题面材料只有 320 到 530 字。模型必须把材料撑开将近一倍，这段差额就是套话的生长空间。
+
+判分时不要把凑字数当成达标：为了够 600 字把同一件事说三遍是 S4。反过来，事实写全了没到 600 字，如实记下来，不自动算失败。
 
 ## What makes a task usable
 
@@ -33,4 +46,4 @@ The **v0.3** paragraph, used by v0.3 tasks:
 
 ## Grading
 
-v0.3 tasks use [rubric v0.3](../../docs/rubric-v0.3.md) and [the v0.3 judge](../../graders/strict-editor-v0.3.md); v0.2 tasks use [rubric v0.2](../../docs/rubric.md) and [its judge](../../graders/strict-editor.md). Always read the task's own `rubric.md` alongside the shared one. Scoring rules are in [the protocol](../../docs/pilot-protocol.md).
+v0.3 tasks use [rubric v0.3](../../docs/rubric-v0.3.md) and [the v0.3 judge](../../graders/strict-editor-v0.3.md); v0.2 tasks use [rubric v0.2](../../docs/rubric.md) and [the judge](../../graders/strict-editor-v0.3.md). Always read the task's own `rubric.md` alongside the shared one. Scoring rules are in [the protocol](../../docs/pilot-protocol.md).

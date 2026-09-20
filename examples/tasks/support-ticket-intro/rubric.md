@@ -5,7 +5,7 @@
 - Solver input: [prompt.md](prompt.md) only, plus the shared instruction and, in arm B, the v0.2 style paragraph
 - Shared protocol: [docs/pilot-protocol.md](../../../docs/pilot-protocol.md)
 
-This task predates S5–S7 and stays on [rubric v0.2](../../../docs/rubric.md) with the [v0.2 judge](../../../graders/strict-editor.md). Do not re-score it under v0.3 and do not pool its results with v0.3 tasks.
+This task predates S5–S7 and stays on [rubric v0.2](../../../docs/rubric.md) with the [judge](../../../graders/strict-editor-v0.3.md). Do not re-score it under v0.3 and do not pool its results with v0.3 tasks.
 
 ## Arm B style paragraph (v0.2)
 
@@ -38,6 +38,6 @@ The one collected answer is the [development observation](../../observations/sup
 | S3 | `工具只负责整理和分组，不会代替大家回复客户，也不会自动发送任何消息` | One passage: a role restriction plus two denials, reinforced by `回复仍由客服同事自行判断和撰写`. |
 | S4 | `内容相近、属于同类问题` | Two phrasings of the single supplied grouping criterion. |
 
-Fragment-level calibration for this task is in [graders/calibration.md](../../../graders/calibration.md).
+Fragment-level calibration for this task lives in the table above.
 
 That observation has thin provenance: model version, settings, and the exact prompt are unverified, and there is no matched B answer. It is calibration material, not a result.

@@ -1,6 +1,6 @@
 # Rubric v0.2: slop patterns, factual fidelity, and task usefulness
 
-Status: unfrozen development rubric for the approved [support-ticket introduction](../examples/tasks/support-ticket-intro/prompt.md), using grader policy **strict-v1**. The current protocol evaluates direct text answers; no Harbor, Docker, command execution, or output file is required from the model. Human reviewers and the [strict editorial judge](../graders/strict-editor.md) use the same policy. The [score gate](../scripts/score_review.py) validates their judgments and calculates the result; it does not judge prose itself.
+Status: unfrozen development rubric for the approved [support-ticket introduction](../examples/tasks/support-ticket-intro/prompt.md), using grader policy **strict-v1**. The current protocol evaluates direct text answers; no Harbor, Docker, command execution, or output file is required from the model. Human reviewers and the [strict editorial judge](../graders/strict-editor-v0.3.md) use the same policy. The [score gate](../scripts/score_review.py) validates their judgments and calculates the result; it does not judge prose itself.
 
 This v0.2 rubric continues to govern the original pilot. The [three new tasks](../examples/tasks/index.md) use [v0.3](rubric-v0.3.md), which adds S5–S7 while retaining strict-v1 and the S1–S4 definitions. Do not apply the support-ticket factual checklist to those tasks.
 
@@ -21,7 +21,7 @@ The [observed answer and annotation](../examples/observations/support-ticket-use
 - **Require a complete clean review to pass.** Quote exact defective spans and explain the violated rule. Give a reason for every family pass. Use `unresolved` only for a concrete ambiguity that prevents a decision, and explain what evidence would resolve it. Do not downgrade a defined calibration failure to unresolved merely by imagining a charitable reading.
 - **Keep uncertainty visible.** An unresolved review never receives a passing reward. A confirmed failure still receives zero when other judgments are unresolved. Grader errors and missing reviews are not model successes or model failures.
 
-The [calibration cases](../graders/calibration.md) define failures and legitimate uses under this policy. They calibrate judges; keep them out of the solver context.
+Each task's own `rubric.md` carries the calibration cases defining failures and legitimate uses under this policy. They calibrate judges; keep them out of the solver context.
 
 ## Review procedure
 

@@ -4,7 +4,7 @@ Historical exploration of explicit-constraint tasks. These candidates are separa
 
 These were proposals, not measured improvements. Freeze each prompt and its proposition rubric before running pilots. Do not infer that an unfamiliar paraphrase is wrong from a regex miss. Grade style scope separately from factual fidelity, and inspect every claimed model failure. The budgets below are ceilings with ample room, not targets.
 
-Sources: `stop-slop/references/structures.md` (binary contrasts), especially its instruction to drop the negated half; `no-ai-slop/SKILL.md`, “Binary contrasts,” “Keep the user's meaning,” and preservation of real uncertainty; `haohao-shuohua/SKILL.md`, factual fidelity, predicate direction, modality, and local protected spans. These candidates test the conflict between mechanical contrast removal and meaning preservation. The [historical independent review](../docs/reviews/2026-09-19-codex-initial.md), section 8, recommends matched policies, moving quote exceptions, and an additional turn after a policy reversal.
+Sources: `stop-slop/references/structures.md` (binary contrasts), especially its instruction to drop the negated half; `no-ai-slop/SKILL.md`, “Binary contrasts,” “Keep the user's meaning,” and preservation of real uncertainty; `haohao-shuohua/SKILL.md`, factual fidelity, predicate direction, modality, and local protected spans. These candidates test the conflict between mechanical contrast removal and meaning preservation. A historical independent Codex review (since removed), section 8, recommended matched policies, moving quote exceptions, and an additional turn after a policy reversal.
 
 ## Candidate A: one attribution contains two independently governed voices
 

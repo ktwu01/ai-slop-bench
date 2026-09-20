@@ -14,7 +14,7 @@ python3 scripts/status.py
 
 | 版本 | 查的项 | rubric | 评审指令 |
 |---|---|---|---|
-| v0.2 | S1–S4 | [rubric v0.2](rubric.md) | [v0.2 评审指令](../graders/strict-editor.md) |
+| v0.2 | S1–S4 | [rubric v0.2](rubric.md) | [评审指令](../graders/strict-editor-v0.3.md) |
 | v0.3 | S1–S7，新增 S5 夸大意义、S6 装深刻的结尾、S7 故作洞见 | [rubric v0.3](rubric-v0.3.md) | [v0.3 评审指令](../graders/strict-editor-v0.3.md) |
 
 不得把旧回答直接改称新规则下的独立测试结果。不同版本的结果不得混算成同一次提示干预。

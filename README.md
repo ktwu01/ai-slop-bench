@@ -6,14 +6,14 @@
 
 ## 当前题集
 
-| 题目 | 主要观察的表达 | 评分与提示版本 |
+| 题目 | 主要观察的表达 | 字数 |
 |---|---|---|
-| 客服工具介绍 | S1 对比套式、S2 元话语、S3 过度防御、S4 冗余 | 原有 v0.2，题面和 B 提示不变 |
-| 图书馆晚间还书通知 | S5：把小幅服务调整拔高成重大转变或价值宣言 | 新题 v0.3 |
-| 志愿维修手记 | S6：在具体经历后添加空泛的人生感悟或装饰性结尾 | 新题 v0.3 |
-| 读书会候补说明 | S7：用自问自答、悬念或“被忽略的真相”包装普通流程 | 新题 v0.3 |
+| 客服工具介绍 | S2 元话语、S3 过度防御、S4 冗余（已观察到） | 约 180 字 |
+| 长文修订说明 | S5：把承认自己出错写成一种姿态 | 约 200 字 |
 
-每道新题都有独立题面、事实清单、判分边界、反例、合理表达对照和完整参考答案。模型只看自然请求和所属条件的指令，评审材料不进入解题上下文。反例与参考答案均为编写的校准材料，不是模型实测结果。
+题面只是普通写作请求，不提文风、不列禁用词、不给带套话的草稿。出题前提见[出题规则](docs/task-design-rules.md)。
+
+回答要留出篇幅，套话才有地方长出来。30 到 90 字的题诱发不了：模型把事实说完就没位置了。已观察到的那条失败回答有 247 字。
 
 ## 比较与判分
 
@@ -27,7 +27,7 @@ A 组不额外添加去套话提示，B 组加固定提示。两组的题目、�
 
 - [题目目录与 A/B 指令](examples/tasks/index.md)、[rubric v0.3](docs/rubric-v0.3.md)、[v0.3 严格评审提示](graders/strict-editor-v0.3.md)。
 - [试验流程](docs/pilot-protocol.md)、[出题前提](docs/task-design-rules.md)。
-- 客服工具介绍题：[题面](examples/tasks/support-ticket-intro/prompt.md)、[rubric v0.2](docs/rubric.md)、[v0.2 严格评审提示](graders/strict-editor.md)。
+- 客服工具介绍题：[题面](examples/tasks/support-ticket-intro/prompt.md)、[rubric v0.2](docs/rubric.md)、[严格评审提示](graders/strict-editor-v0.3.md)。
 - [评分校验脚本](scripts/score_review.py)：支持 v0.2 与 v0.3，校验评审 JSON 并汇总结果，不代替语义评审。
 - [评测设计](docs/proposal.md)、[采样安排](docs/mvp10.md)。
 
