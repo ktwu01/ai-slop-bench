@@ -13,6 +13,11 @@
 | `vaccine-line-incident` | [Case introduction](vaccine-line-incident/prompt.md) | Fidelity and S5: draw a double-standard verdict from separately sourced cases | 600–1000字 | [Rubric](vaccine-line-incident/rubric.md) |
 | `bravery-club-recap` | [Discussion minutes](bravery-club-recap/prompt.md) | S6: a discussion about courage invites performing wisdom about courage | 600–1000字 | [Rubric](bravery-club-recap/rubric.md) |
 | `conference-abstract-cut` | [Note to collaborators](conference-abstract-cut/prompt.md) | S5: turn a routine length edit into a principle | 600–1000字 | [Rubric](conference-abstract-cut/rubric.md) |
+| `lab-tool-boundary` | [Tool introduction](lab-tool-boundary/prompt.md) | S3: chain a tool's four real limits into reassurance. Deliberately parallel to `support-ticket-intro` | 600–1000字 | [Rubric](lab-tool-boundary/rubric.md) |
+| `ai-draft-privacy-note` | [Meeting update](ai-draft-privacy-note/prompt.md) | Fidelity: flatten a narrow denial and a volunteered caveat into a verdict | 600–1000字 | [Rubric](ai-draft-privacy-note/rubric.md) |
+| `media-coverage-update` | [Message to collaborators](media-coverage-update/prompt.md) | S5 and fidelity: one paper has no new coverage | 600–1000字 | [Rubric](media-coverage-update/rubric.md) |
+| `quickfacts-collapse-note` | [Site update note](quickfacts-collapse-note/prompt.md) | S5: amplify supplied reversals into an inspirational arc, or apologize for them | 600–1000字 | [Rubric](quickfacts-collapse-note/rubric.md) |
+| `poetry-club-handover` | [Handover document](poetry-club-handover/prompt.md) | Fidelity and S6: round up three deflating numbers, or close with a reflection | 600–1000字 | [Rubric](poetry-club-handover/rubric.md) |
 
 For what exists right now, which rubric each task uses, and whether any answers have been collected:
 
