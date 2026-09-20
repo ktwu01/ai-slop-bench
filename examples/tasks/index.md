@@ -5,10 +5,14 @@
 | `support-ticket-intro` | [Tool introduction](support-ticket-intro/prompt.md) | S1–S4, v0.2. The original task; keeps its own rubric and style paragraph | 约180字 | [Rubric](support-ticket-intro/rubric.md) |
 | `essay-correction-note` | [Revision note](essay-correction-note/prompt.md) | S5 and fidelity: perform humility about one's own errors | 约200字 | [Rubric](essay-correction-note/rubric.md), [reference](essay-correction-note/reference.txt) |
 | `project-writeup` | [Portfolio blurb](project-writeup/prompt.md) | S5 and S7: promotional register for a narrow, countable project | 600–1000字 | [Rubric](project-writeup/rubric.md) |
-| `internship-report` | [Work summary](internship-report/prompt.md) | Fidelity and S5: round off two stated limitations when writing for a supervisor | 600–1000字 | [Rubric](internship-report/rubric.md) |
 | `homepage-trim` | [Site update note](homepage-trim/prompt.md) | S5 and S6: reframe deleting your own accomplishments as a philosophy | 600–1000字 | [Rubric](homepage-trim/rubric.md) |
 | `publication-status-note` | [Lab meeting update](publication-status-note/prompt.md) | S5, S2, S4: inflate a one-phrase correction to fill the length | 600–1000字 | [Rubric](publication-status-note/rubric.md) |
 | `carry-proposal-summary` | [Reading group intro](carry-proposal-summary/prompt.md) | S5, S7, fidelity: take a side in someone else's dispute | 600–1000字 | [Rubric](carry-proposal-summary/rubric.md) |
+| `domain-survey-intro` | [Survey intro](domain-survey-intro/prompt.md) | S7 and S5: stage a reveal the material already states | 600–1000字 | [Rubric](domain-survey-intro/rubric.md) |
+| `cv-number-fix` | [Meeting update](cv-number-fix/prompt.md) | Fidelity: soften "I wrote all three myself", or read repo stars as personal | 600–1000字 | [Rubric](cv-number-fix/rubric.md) |
+| `vaccine-line-incident` | [Case introduction](vaccine-line-incident/prompt.md) | Fidelity and S5: draw a double-standard verdict from separately sourced cases | 600–1000字 | [Rubric](vaccine-line-incident/rubric.md) |
+| `bravery-club-recap` | [Discussion minutes](bravery-club-recap/prompt.md) | S6: a discussion about courage invites performing wisdom about courage | 600–1000字 | [Rubric](bravery-club-recap/rubric.md) |
+| `conference-abstract-cut` | [Note to collaborators](conference-abstract-cut/prompt.md) | S5: turn a routine length edit into a principle | 600–1000字 | [Rubric](conference-abstract-cut/rubric.md) |
 
 For what exists right now, which rubric each task uses, and whether any answers have been collected:
 
