@@ -8,6 +8,7 @@ authors = [{ name = "ktwu01" }]
 keywords = [ "chinese", "writing", "instruction-following", "protected-span",]
 
 [metadata]
+# 题面直接给出「不是……而是……」作为要逐字保留的原话，模型因此在上下文里拿到了这个句式。这是指令遵循题（保护引文、改写其余），不是套话诱发题。
 family = "protected-span"
 role = "target"
 split = "public"
