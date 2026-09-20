@@ -21,7 +21,7 @@ This is a user-supplied answer used to develop rubric v0.2 and grader policy str
 
 ## Annotation
 
-The relevant source is the [approved task](../one-task-ablation.md), and the current definitions are [rubric v0.2](../../docs/rubric.md).
+The relevant source is the [approved task](../tasks/support-ticket-intro/prompt.md), and the current definitions are [rubric v0.2](../../docs/rubric.md).
 
 | Rule or dimension | Evidence | Judgment |
 |---|---|---|

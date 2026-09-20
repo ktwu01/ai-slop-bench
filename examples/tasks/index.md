@@ -1,10 +1,17 @@
 # Direct-answer writing tasks
 
-One authored task, alongside the [approved support-ticket pilot](../one-task-ablation.md). It has not been tested on models.
-
 | Task | Solver prompt | Primary target | Reviewer material |
 |---|---|---|---|
+| `support-ticket-intro` | [Tool introduction](support-ticket-intro/prompt.md) | S1–S4, v0.2. The original task; keeps its own rubric and style paragraph | [Rubric](support-ticket-intro/rubric.md) |
 | `essay-correction-note` | [Revision note](essay-correction-note/prompt.md) | S5 and fidelity: perform humility about one's own errors, or drop the upper-bound reasoning and the conceded objection | [Rubric](essay-correction-note/rubric.md), [reference](essay-correction-note/reference.txt) |
+
+For what exists right now, which rubric each task uses, and whether any answers have been collected:
+
+```bash
+python3 scripts/status.py
+```
+
+That reads the tree. This table describes the tasks; it does not track their state.
 
 ## What makes a task usable
 
@@ -16,20 +23,14 @@ The scenario and every fact come from `ktwu01.github.io` commit `d460bb5`, "Revi
 
 ## Matched A/B instructions
 
-Both arms receive this shared instruction followed by the exact same `prompt.md`:
+The shared instruction, the A/B construction, and the sampling steps are in [docs/pilot-protocol.md](../../docs/pilot-protocol.md). Each rubric version supplies its own style paragraph.
 
-> You are an assistant completing the user's writing task. Preserve the supplied facts, negations, conditions, and uncertainty. Do not invent claims or commitments. Return the requested text directly.
-
-A adds no style guidance. B inserts the following fixed **v0.3** style paragraph between the shared instruction and task:
+The **v0.3** paragraph, used by v0.3 tasks:
 
 > 直接说明具体事实和作用。避免用固定对比句式给普通事实增加戏剧感。删去只宣布强调或解释重要性的引导语。不要用一连串职责限制和否定句来回应读者未提出的担心，也不要重复表达同一信息。不要把普通安排拔高成宏大转变，或附加没有依据的价值宣言。结尾保留具体观察、已有感受或下一步安排，删去装饰性比喻和泛泛的人生道理。直接解释原因和做法。不要自问自答、故作悬念，也不要假设读者忽略了某个关键。保留有事实依据的区别、感受、致谢和真正需要的问题。
 
-The original pilot retains its v0.2 B paragraph and scoring. Do not pool results across these intervention/rubric versions without identifying the difference.
+`support-ticket-intro` keeps its v0.2 paragraph, recorded in its own [rubric](support-ticket-intro/rubric.md). Results are not pooled across versions.
 
-## Grading and sampling
+## Grading
 
-Use [rubric v0.3](../../docs/rubric-v0.3.md), [the v0.3 judge](../../graders/strict-editor-v0.3.md), and the task-specific rubric. All S1–S7 apply. Under strict-v1, any confirmed defect gives zero; no partial credit. Keep unresolved judgments separate from passes. The score gate accepts v0.3 reviews with exactly S1–S7 and preserves v0.2 support.
-
-For a future pilot, freeze these materials first. Collect five fresh independent first answers per arm, interleaving A/B with the same model, interface, and settings. Save exact prompts, visible instructions, model/settings, raw answers, task ID, and all versions. Blind graders to condition and model identity. Report every answer, per-family outcomes, fidelity, and unresolved cases. If platform instructions are hidden, label A as "no added guidance."
-
-Harbor is unnecessary. Models answer directly; operators save the returned text and grader review externally. Authored bad fragments and the reference answer are calibration material, never empirical success or failure counts.
+v0.3 tasks use [rubric v0.3](../../docs/rubric-v0.3.md) and [the v0.3 judge](../../graders/strict-editor-v0.3.md); v0.2 tasks use [rubric v0.2](../../docs/rubric.md) and [its judge](../../graders/strict-editor.md). Always read the task's own `rubric.md` alongside the shared one. Scoring rules are in [the protocol](../../docs/pilot-protocol.md).

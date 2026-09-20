@@ -13,4 +13,6 @@
 
 留下 `essay-correction-note`。它是一篇长文修订后要写的说明，讲的是引用、物理和结论，跟文风无关。
 
+同一天另外删掉了三个更早写的题：`library-evening-return`、`repair-diary`、`waitlist-cancellation`。它们的 prompt 本身没有 hint，但都是凭假设出题，没有真实出处，也没有模型跑过。
+
 说清读者是谁没问题，教怎么写就不行。
